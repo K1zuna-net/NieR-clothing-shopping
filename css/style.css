@@ -1,0 +1,287 @@
+@charset "UTF-8";
+@import url(https://use.fontawesome.com/releases/v5.15.4/css/all.css);
+/*========= ページ全体共有 ===============*/
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+body{
+  background-color: gray;
+}
+
+img{
+  max-width: 100%;
+}
+
+#container{
+  background-color: whitesmoke;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 5px;
+}
+
+.header{
+  padding: 10px 0;
+  height: auto;
+}
+
+.header h1{
+  width: 500px;
+  margin: 0;
+}
+
+.img_center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+hr{
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+  background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
+  background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
+  background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+
+footer p{
+  margin: 10px 0px 0px 0px;
+  text-align: center;
+  font-size: 10px;
+  color: #c0c0c0;
+}
+
+/*========= index.html 商品ページ ===============*/
+#item-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item {
+  margin: 10px;
+  position: relative;
+
+}
+.item .item-thum {
+  width: 250px;
+  height:250px;
+  margin: 0;
+  padding: 0;
+}
+.item-thum img {
+  width: 100%;
+  height:100%;
+}
+.item .item-text {
+  position:    absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background-color:    rgba(0,0,0,0.65);
+  /*透明にして表示させない*/
+  opacity: 0;
+  /*ホバーの動き方*/
+  transition: .3s ease-in-out;
+}
+.item .item-text .name {
+  font-size: 20px;
+  padding: 5px;
+}
+.item .item-text .price {
+  font-size: 15px;
+  padding: 0 20px;
+}
+/*ホバーエフェクト*/
+.item:hover .item-text {
+  /*不透明にして表示*/
+  opacity: 1;
+}
+/*========= SNSアイコン関係 ===============*/
+      /* 共通のアイコンエフェクト */
+      .socialEffect__link {
+        margin: .0em;
+        display: block;
+        width: 60px;
+        height: 60px;
+        line-height: 65px;
+        border-radius: 50%;
+        border: solid 1px black; /*枠線*/
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        color: #bfbfbf;
+        font-size: 1.6rem;
+        background: white;  /*背景*/
+        transition: transform ease-out 0.2s;
+      }
+      
+
+      .socialEffect__box{
+        float: right;
+        margin-top: 5px;
+      }
+
+      .socialEffect__box li {
+        display: inline-block;
+      }
+
+      /* インスタ用アイコン設定 */
+      .icon-instagram::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        z-index: -1;
+        transform: scale(0.9);
+      }
+      .fab.fa-instagram {
+        display: inline-block;
+        color: black; /*アイコン色*/
+      }
+      .icon-instagram:hover {
+        background: radial-gradient(
+            circle farthest-corner at 32% 106%,
+            rgb(255, 225, 125) 0%,
+            rgb(255, 205, 105) 10%,
+            rgb(250, 145, 55) 28%,
+            rgb(235, 65, 65) 42%,
+            transparent 82%
+          ),
+          linear-gradient(135deg, rgb(35, 75, 215) 12%, rgb(195, 60, 190) 58%);
+        transform: scale(0.9);
+      }
+      /* ツイッター用アイコン設定 */
+      .icon-twitter::before {
+        content: "";
+        position: absolute; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        z-index: -1;
+        transform: scale(0.9);
+      }
+      .fab.fa-twitter {
+        display: inline-block;
+        color: black;/*アイコン色*/
+      }
+      .icon-twitter:hover {
+        background: #00b0ed;
+        transform: scale(0.9);
+      }
+
+/*========= 1文字ずつ出現させる ===============*/
+.eachTextAnime{
+  margin: 5px;
+  font-size: 23px;
+  text-align: center;
+  font-family: 'Zen Old Mincho', serif;
+  }
+
+.eachTextAnime span{opacity: 0;}
+.eachTextAnime.appeartext span{ animation:text_anime_on 1s ease-out forwards; }
+@keyframes text_anime_on {
+	0% {opacity:0;}
+	100% {opacity:1;}
+}
+
+/*========= 各商品ページ ===============*/
+/*========= 画像スライド ===============*/
+
+.cp_cssslider {
+	width: 650px;
+	padding-top: 650px; /* 画像の高さ */
+	position: relative;
+	margin: auto;
+	text-align: center;
+}
+
+.cp_cssslider > img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transition: all 0.5s;
+	border-radius: 3px;
+	box-shadow:0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+
+.cp_cssslider input[name='cp_switch'] {
+	display: none;
+}
+
+/* サムネイル */
+.cp_cssslider label {
+	margin: 15px 5px 0 5px;
+	border: 2px solid #ffffff;
+	display: inline-block;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	opacity: 0.6;
+	border-radius: 3px;
+}
+
+.cp_cssslider label:hover {
+	opacity: 0.9;
+}
+
+.cp_cssslider label img {
+	display: block;
+	width: 40px;
+	border-radius: 2px;
+}
+
+.cp_cssslider input[name='cp_switch']:checked + label {
+	border: 2px solid #FF7043;
+	opacity: 1;
+}
+
+.cp_cssslider input[name='cp_switch'] ~ img {
+	opacity: 0;
+}
+
+.cp_cssslider input[name='cp_switch']:checked + label + img {
+	opacity: 1;
+}
+
+/*========= 商品ページ ===============*/
+.product_name{
+  text-align: center;
+  font-family: 'Shippori Mincho', serif;
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+.product_price{
+  text-align: center;
+  font-family: 'Shippori Mincho', serif;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  font-size: 25px;
+  color: #dc143c;
+}
+
+.product_intro{
+  line-height: 2em;
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 19px;
+  margin-top: 5px ;
+  margin-left: 8px;
+  margin-bottom: 0px;
+}
+
+/*個数選択とボタン*/
+.buy{
+  margin-top: 15px;
+}
